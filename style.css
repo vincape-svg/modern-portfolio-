@@ -1,0 +1,62 @@
+:root {
+    --bg: #050505;
+    --text: #ffffff;
+    --accent: #ff003c;
+    --font-hero: 'Syne', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+#canvas-container { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.3; }
+
+.cursor-dot { position: fixed; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; z-index: 10000; pointer-events: none; }
+.cursor-circle { position: fixed; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; z-index: 9999; pointer-events: none; transition: width 0.4s, height 0.4s, background 0.4s; }
+
+nav { display: flex; justify-content: space-between; padding: 40px 60px; position: fixed; width: 100%; z-index: 500; mix-blend-mode: difference; }
+.nav-logo { font-family: var(--font-hero); font-weight: 800; letter-spacing: 2px; }
+.nav-menu a { text-decoration: none; color: #fff; font-size: 0.7rem; letter-spacing: 3px; margin-left: 30px; opacity: 0.5; transition: 0.3s; }
+.nav-menu a:hover { opacity: 1; color: var(--accent); }
+
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; }
+.hero-title h1 { font-family: var(--font-hero); font-size: 13vw; line-height: 0.8; font-weight: 800; letter-spacing: -0.05em; text-transform: uppercase; }
+.accent { color: var(--accent); }
+.hero-footer { margin-top: 50px; display: flex; justify-content: space-between; font-size: 0.6rem; letter-spacing: 5px; color: #444; }
+
+.pathway-section { padding: 150px 10%; border-top: 1px solid #111; }
+.pathway-title { font-family: var(--font-hero); font-size: 6vw; margin-bottom: 40px; line-height: 1; }
+.bio-text { font-size: 2rem; line-height: 1.4; color: #666; max-width: 900px; margin-bottom: 80px; }
+.white { color: #fff; font-weight: 700; border-bottom: 2px solid var(--accent); }
+
+.ambition-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+.ambition-item { padding: 40px; background: rgba(255,255,255,0.02); border: 1px solid #1a1a1a; transition: 0.5s; }
+.ambition-item:hover { border-color: var(--accent); background: rgba(255, 0, 60, 0.05); transform: translateY(-10px); }
+.ambition-item h3 { font-family: var(--font-hero); font-size: 1.2rem; margin-bottom: 10px; }
+.ambition-item p { font-size: 0.8rem; color: #555; line-height: 1.6; }
+
+.info-section { padding: 100px 10%; background: #080808; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+.section-label { font-size: 0.6rem; letter-spacing: 5px; color: var(--accent); margin-bottom: 30px; }
+.traits { display: flex; gap: 10px; flex-wrap: wrap; }
+.traits span { padding: 8px 15px; border: 1px solid #222; font-size: 0.6rem; color: #666; letter-spacing: 2px; }
+.skill-group { margin-bottom: 30px; }
+.skill-group h3 { font-family: var(--font-hero); font-size: 1rem; color: var(--accent); margin-bottom: 10px; }
+.skill-group p { color: #888; font-size: 0.9rem; }
+
+footer { padding: 150px 10% 50px; border-top: 1px solid #111; }
+.contact-main h1 { font-family: var(--font-hero); font-size: 8vw; font-weight: 800; margin-bottom: 50px; transition: 0.5s; }
+.contact-main h1:hover { -webkit-text-stroke: 1px #fff; color: transparent; }
+.contact-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+.email-btn { font-size: 1.2rem; color: #fff; text-decoration: none; border: 1px solid #fff; padding: 20px 40px; transition: 0.4s; }
+.email-btn:hover { background: #fff; color: #000; }
+.socials a { text-decoration: none; color: #444; font-size: 0.7rem; letter-spacing: 3px; margin-left: 30px; }
+
+.reveal { opacity: 0; transform: translateY(50px); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .info-grid { grid-template-columns: 1fr; }
+    .hero-title h1 { font-size: 18vw; }
+    .bio-text { font-size: 1.4rem; }
+}
